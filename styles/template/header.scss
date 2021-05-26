@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Secular+One&display=swap');
+
+header{
+    width: 100%;
+    height: 100px;
+    background-color: #f3e9f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 2px #8f5bfe;
+    position: fixed;
+    img{
+        height: 100px;
+        margin-left: 5%;
+    }
+    nav{
+        margin-right: 5%;
+        display: flex;
+        a{
+            text-decoration: none;
+            color: black;
+            margin-right: 20%;
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+           
+        } 
+        a:hover{
+            font-weight: bold;
+        }
+    }
+}
+
+
