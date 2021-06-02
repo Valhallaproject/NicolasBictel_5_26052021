@@ -16,7 +16,7 @@ header {
   position: fixed;
 }
 
-header img {
+header .logo {
   height: 100px;
   margin-left: 5%;
 }

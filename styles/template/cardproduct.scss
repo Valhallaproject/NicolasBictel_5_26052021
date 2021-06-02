@@ -1,0 +1,55 @@
+#content{
+    width: 100%;
+    padding-top: 150px;
+    #produit{
+        width: 80%;
+        margin: 0 auto;
+       
+    }
+    .camera_name{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+         h2{
+            font-size: 2em;
+        }
+        .price{
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    }
+    .card{
+        display: flex;
+        img{
+            object-fit: cover;
+            width: 60%;
+
+        }
+        .text_card{
+            padding-left: 40px;
+            .text{
+                margin: 0;
+            }
+            
+        }
+    }
+    .select{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+        align-items: center;
+        .choice{
+            font-weight: bold;
+        }
+        .quantity{
+            display: flex;
+            font-weight: bold;
+            align-items: center;
+            input{
+                height: 15px;
+                width: 30px;
+            }
+        }
+    }
+}
+

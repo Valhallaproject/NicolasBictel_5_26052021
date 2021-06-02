@@ -1,0 +1,83 @@
+#content {
+  width: 100%;
+  padding-top: 150px;
+}
+
+#content #produit {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#content .camera_name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#content .camera_name h2 {
+  font-size: 2em;
+}
+
+#content .camera_name .price {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+#content .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#content .card img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 60%;
+}
+
+#content .card .text_card {
+  padding-left: 40px;
+}
+
+#content .card .text_card .text {
+  margin: 0;
+}
+
+#content .select {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#content .select .choice {
+  font-weight: bold;
+}
+
+#content .select .quantity {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: bold;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#content .select .quantity input {
+  height: 15px;
+  width: 30px;
+}
+/*# sourceMappingURL=cardproduct.css.map */
