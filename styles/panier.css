@@ -43,4 +43,8 @@ header nav a:hover {
 body {
   margin: 0;
 }
+
+#main {
+  padding-top: 150px;
+}
 /*# sourceMappingURL=panier.css.map */

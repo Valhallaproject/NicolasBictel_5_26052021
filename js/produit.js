@@ -37,7 +37,7 @@ fetch("http://localhost:3000/api/cameras/"+idProduct)
                     <input type="number" value="1"  id="quantity" class="quantity" min="1" name="quantity" placeholder="1" >
                 </div>
                 <div class="add">
-                    <button id="add_cart">Ajouter au panier</button>
+                    <button id="add_cart" >Ajouter au panier</button>
                 </div>
             </div>`
 
@@ -55,17 +55,54 @@ fetch("http://localhost:3000/api/cameras/"+idProduct)
             choice.appendChild(option);
             })
         
-        //Add product to cart
+        
             //Variable to retrieve the value of the input quantity
-            let myNumber = document.querySelector(".quantity").value;
+           let myNumber = document.querySelector(".quantity").value;
+
+           //Add product to cart
+            document.getElementById("add_cart").onclick=function addCart(){
                 
-            document.getElementById("add_cart").onclick=function(){
+             
                 myNumber = parseInt(quantity.value);
                 console.log(reponse.name + " " +((reponse.price/100).toFixed(2)*myNumber) + " " + myNumber);
-                alert("l'article est bien ajouté au panier")
-            }      
-        
-    
-    
+                //Variable in json format for localstorage
+                let cart = {
+                    _id: reponse._id,
+                    name: reponse.name,
+                    imageUrl:reponse.imageUrl,
+                    description: reponse.description,
+                    price: reponse.price/100,
+                    totalPrice: (reponse.price/100)*myNumber,
+                    quantity: myNumber,
+                }
+
+                //pop up confirmation sending to cart
+                const confirmation = () => {
+                    if(window.confirm(`${cart.name} a bien été ajouté au panier.
+                Cliquez sur OK pour voir votre panier,
+                Ou cliquez sur ANNULER pour continuer vos achats`)){
+                    window.location.href = "panier.html";
+                    }else{
+                        window.location.href = "index.html";    
+
+                    }
+                }
+                //Add to localstorage
+                let cartStorage = JSON.parse(localStorage.getItem("produit")); 
+                
+                // if there are already products 
+                if(cartStorage){
+                    cartStorage.push(cart)
+                    localStorage.setItem("produit", JSON.stringify(cartStorage));
+                    confirmation();
+
+                //if there are no products
+                }else{
+                    cartStorage = [];
+                    cartStorage.push(cart)
+                    localStorage.setItem("produit", JSON.stringify(cartStorage));
+                    confirmation();
+                }
+            
+        }
     })
-    
