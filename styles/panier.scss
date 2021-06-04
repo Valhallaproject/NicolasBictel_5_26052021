@@ -4,5 +4,20 @@ body{
     margin: 0;
 }
 #main{
+    width: 80%;
     padding-top: 150px;
+    margin: 0 auto;
+    .fullCart{
+        display: flex;
+        flex-wrap: wrap;
+        line-height: 50px;
+        p{
+            width: 23%;
+            height: 50px;
+            border: 1px solid black;
+            padding: 5px;
+            margin: 0;
+
+        }
+    }
 }

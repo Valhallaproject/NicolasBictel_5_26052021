@@ -22,7 +22,7 @@ if(cartStorage === null){
     for(i = 0; i < cartStorage.length; i++){
         fullCart += 
         `
-            <div clas="fullCart">
+            <div class="fullCart">
             <p>${cartStorage[i].name}</p>
             <p>Prix unitaire : ${cartStorage[i].price}</p>
             <p>Quanité : ${cartStorage[i].quantity}</p>
