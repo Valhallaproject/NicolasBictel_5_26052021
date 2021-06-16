@@ -5,7 +5,6 @@ fetch("http://localhost:3000/api/cameras/"+idProduct)
     .then((reponse) => reponse.json())
     .then((reponse) => { 
 
-    console.log(reponse);
 
     //Variable to add my product in HTML
     let html = ""; 
@@ -51,52 +50,57 @@ fetch("http://localhost:3000/api/cameras/"+idProduct)
             let myNumber = document.querySelector(".quantity").value;
             //Add product to cart
             document.getElementById("add_cart").onclick=function addCart(){
-                
                 myNumber = parseInt(quantity.value);
-                console.log(reponse.name + " " +((reponse.price/100).toFixed(2)*myNumber) + " " + myNumber);
                 //Variable in json format for localstorage
                 let cart = {
                     _id: reponse._id,
                     name: reponse.name,
                     imageUrl:reponse.imageUrl,
                     description: reponse.description,
-                    price: reponse.price/100,
+                    price: (reponse.price/100),
                     totalPrice: (reponse.price/100)*myNumber,
                     quantity: myNumber,
                 }
                 //pop up confirmation sending to cart
                 const confirmation = () => {
                     if(window.confirm(`${cart.name} a bien été ajouté au panier.
-                        Cliquez sur OK pour voir votre panier,
-                        Ou cliquez sur ANNULER pour continuer vos achats`)){
+                        //Cliquez sur OK pour voir votre panier,
+                        //Ou cliquez sur ANNULER pour continuer vos achats`)){
                     window.location.href = "panier.html";
                     }else{
                         window.location.href = "index.html";    
                     }
                 }
-                //Add to localstorage
-                let cartStorage = JSON.parse(localStorage.getItem("produit"));
-               
-                // if there are already products
-                if(cartStorage ){ 
-                    for(i = 0; i < cartStorage.length; i++){
-                        if (cart._id === cartStorage[i]._id) {
-                            cartStorage[i].quantity  = cart.quantity + cartStorage[i].quantity ; 
-                            cartStorage[i].totalPrice = cartStorage[i].quantity * cartStorage[i].price;
-                        }else{
-                        cartStorage.push(cart)
+            //Variable for add to localstorage
+            let cartStorage = JSON.parse(localStorage.getItem("produit"));   
+            //If th cart is empty
+             if (cartStorage == null){
+                //it is necessary to create an empty table which receives the products
+                cartStorage = []; 
+                //I send the object (name, price, quantity, total price) produced in the empty table
+                cartStorage.push(cart)
+                localStorage.setItem("produit", JSON.stringify(cartStorage))
+                confirmation();
+            }
+            //If the cart already has items
+            else if (cartStorage) {
+                //I create a loop to check if the product I am sending is already in the cart
+                for(let i = 0; i < cartStorage.length; i++){  
+                    //I add the object (name, price, quantity, total price) produced in the table which receives the products   
+                    cartStorage.push(cart);
+                    localStorage.setItem("produit", JSON.stringify( cartStorage));
+                    cartStorage.pop();
+                    //If there is already
+                    if (cart._id === cartStorage[i]._id){ 
+                        //I modify the quantity of the product object which is in the cart
+                        cartStorage[i].quantity = myNumber +  cartStorage[i].quantity;
+                        cartStorage[i].totalPrice = cartStorage[i].quantity * cartStorage[i].price;
                         localStorage.setItem("produit", JSON.stringify(cartStorage));
-                        //confirmation()
-                        }
+                        //I stop the loop
+                        break;
                     }
-                //if there are no products
-                }else{
-                    cartStorage = [];
-                    cartStorage.push(cart)
-                    localStorage.setItem("produit", JSON.stringify(cartStorage));
-                    //confirmation();
                 }
+                confirmation();
             }
         }
-    )
-        
+})   

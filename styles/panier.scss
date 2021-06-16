@@ -12,12 +12,17 @@ body{
         flex-wrap: wrap;
         line-height: 50px;
         p{
-            width: 23%;
+            width: 22%;
             height: 50px;
             border: 1px solid black;
             padding: 5px;
             margin: 0;
 
         }
+        
     }
+    #supprCart{
+            margin-top: 15px;
+            height: 35px;
+        }
 }
