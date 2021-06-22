@@ -1,52 +1,35 @@
 #content {
   width: 100%;
-  padding-top: 150px;
+  padding-top: 250px;
+  padding-bottom: 100px;
 }
 
 #content #produit {
   width: 80%;
   margin: 0 auto;
-}
-
-#content .camera_name {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
-#content .camera_name h2 {
-  font-size: 2em;
+#content .cameraDescription {
+  width: 45%;
+  padding-left: 3%;
 }
 
-#content .camera_name .price {
-  font-size: 1.5em;
+#content .cameraDescription .price {
+  font-size: 20px;
   font-weight: bold;
 }
 
 #content .card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  width: 100%;
 }
 
 #content .card img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 60%;
-}
-
-#content .card .text_card {
-  padding-left: 40px;
-}
-
-#content .card .text_card .text {
-  margin: 0;
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
 }
 
 #content .select {
@@ -56,7 +39,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 50px;
+  margin-top: 20px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -64,6 +47,12 @@
 
 #content .select .choice {
   font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #content .select .quantity {
@@ -79,5 +68,21 @@
 #content .select .quantity input {
   height: 15px;
   width: 30px;
+}
+
+#content .add {
+  margin-top: 20px;
+}
+
+#content .add button {
+  background-color: #f08d0c;
+  color: black;
+  border: none;
+  width: 100%;
+  padding: 8px;
+}
+
+#content .add i {
+  margin-right: 15px;
 }
 /*# sourceMappingURL=cardproduct.css.map */

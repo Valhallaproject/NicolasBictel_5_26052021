@@ -10,31 +10,31 @@ fetch("http://localhost:3000/api/cameras/"+idProduct)
     let html = ""; 
     //Html to display the product
     html +=
-            `<div class="camera_name">
-                <h2>${reponse.name}</h2>
-                <p class="price">${(reponse.price/100).toFixed(2)}€</p>
-            </div>
-            <div class="card">
+            `<div class="card">
                 <img src="${reponse.imageUrl}" alt="Images camera">
-                <div class="text_card">
-                    <p class="text">${reponse.description}</p>
-                    <p class="text">${reponse.description}</p>
-                </div>
             </div>
-            <div class="select">
-                <div class="choice">
-                    <label for="focale-select">Choix de la focale</label>
-                    <select name="focale" id="focale-select" class="focales_select">
-                    </select>
-                </div>
-                <div class="quantity">
-                    <p>Quantité</p>
-                    <input type="number" value="1"  id="quantity" class="quantity" min="1" name="quantity" placeholder="1" >
-                </div>
+            <div class="cameraDescription">
+                <h2>${reponse.name}</h2>
+                <p class="text">${reponse.description}</p>
+                <p class="price">${(reponse.price/100).toFixed(2)}€</p>
+                <div class="select">
+                    <div class="choice">
+                        <label for="focale-select">Focale</label>
+                        <select name="focale" id="focale-select" class="focales_select" >
+                        </select>
+                    </div>
+                    <div class="quantity">
+                        <p>Quantité</p>
+                        <input type="number" value="1"  id="quantity" class="quantity" min="1" name="quantity" placeholder="1" >
+                    </div>
+                </div>   
                 <div class="add">
-                    <button id="add_cart" >Ajouter au panier</button>
+                    <button  onclick="history.go(0)"  id="add_cart"><i class="fas fa-shopping-cart"></i>AJOUTER AU PANIER</button>
                 </div>
             </div>`;
+                
+                
+           
     //Add product to the DOM    
     document.getElementById("produit").innerHTML = (html);
         //variable to add the choice of focal length
@@ -46,11 +46,20 @@ fetch("http://localhost:3000/api/cameras/"+idProduct)
             option.textContent = lenses;
             choice.appendChild(option);
             })
+            
             //Variable to retrieve the value of the input quantity
             let myNumber = document.querySelector(".quantity").value;
+            //Variable for add to localstorage
+            let cartStorage = JSON.parse(localStorage.getItem("produit")); 
             //Add product to cart
-            document.getElementById("add_cart").onclick=function addCart(){
+            document.getElementById("add_cart").addEventListener('click', event => {     //.onclick=function addCart(){
                 myNumber = parseInt(quantity.value);
+                //Retrieving the option value
+                let t = false;
+                let oSelect = document.getElementById("focale-select");
+                    if( t == false && oSelect .selectedIndex != -1 ){
+                        t = true;
+                    }
                 //Variable in json format for localstorage
                 let cart = {
                     _id: reponse._id,
@@ -60,38 +69,27 @@ fetch("http://localhost:3000/api/cameras/"+idProduct)
                     price: (reponse.price/100),
                     totalPrice: (reponse.price/100)*myNumber,
                     quantity: myNumber,
+                    option: oSelect.value,
                 }
-                //pop up confirmation sending to cart
-                const confirmation = () => {
-                    if(window.confirm(`${cart.name} a bien été ajouté au panier.
-                        //Cliquez sur OK pour voir votre panier,
-                        //Ou cliquez sur ANNULER pour continuer vos achats`)){
-                    window.location.href = "panier.html";
-                    }else{
-                        window.location.href = "index.html";    
-                    }
-                }
-            //Variable for add to localstorage
-            let cartStorage = JSON.parse(localStorage.getItem("produit"));   
+                console.log(cart);
             //If th cart is empty
              if (cartStorage == null){
                 //it is necessary to create an empty table which receives the products
                 cartStorage = []; 
-                //I send the object (name, price, quantity, total price) produced in the empty table
+                //I send the object (name, option, price, quantity, total price) produced in the empty table
                 cartStorage.push(cart)
                 localStorage.setItem("produit", JSON.stringify(cartStorage))
-                confirmation();
             }
             //If the cart already has items
             else if (cartStorage) {
                 //I create a loop to check if the product I am sending is already in the cart
                 for(let i = 0; i < cartStorage.length; i++){  
-                    //I add the object (name, price, quantity, total price) produced in the table which receives the products   
+                    //I add the object (name, option, price, quantity, total price) produced in the table which receives the products   
                     cartStorage.push(cart);
                     localStorage.setItem("produit", JSON.stringify( cartStorage));
                     cartStorage.pop();
-                    //If there is already
-                    if (cart._id === cartStorage[i]._id){ 
+                    //If there is already (id + option)
+                    if (cart._id === cartStorage[i]._id && cart.option === cartStorage[i].option){ 
                         //I modify the quantity of the product object which is in the cart
                         cartStorage[i].quantity = myNumber +  cartStorage[i].quantity;
                         cartStorage[i].totalPrice = cartStorage[i].quantity * cartStorage[i].price;
@@ -100,7 +98,12 @@ fetch("http://localhost:3000/api/cameras/"+idProduct)
                         break;
                     }
                 }
-                confirmation();
             }
+                
         }
-})   
+      )               
+        
+    
+        } 
+          
+)   

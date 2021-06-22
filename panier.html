@@ -10,19 +10,78 @@
         <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>        
 
     </head>
-    <body>
-        <header>
+    <body id="body">
+        <header id="header">
             <img class="logo" src="assets/logo.JPG" alt="Logo">
             <nav>
                 <a href="index.html">Accueil</a>
-                <a href="panier.html">Panier</a>
-                <p id="price"></p>
+                <a href="panier.html"><i class="fas fa-shopping-cart"></i><p id="nbItems"></p></a>
+                
             </nav>
         </header>
-        <div id="main">
 
+        <div id="main" >
         </div>
+        <div id="formulaire">
+            <div class="text">
+                <p>Veuillez remplir le formulaire pour valider votre commande</p>
+                <button id="close">X</button>
+            </div>
+            <form action="#" id="form">
+                <div class="formCss1">
+                    <label for="lastName" class="name">Nom : </label>
+                        <input type="text" name="lastName" id="lastName" class='infoRequired' required>
+                </div>
+                <div class="formCss1">
+                    <label for="firstName" class="name">Prénom : </label>
+                        <input type="text" name="firstName" id="firstName" class='infoRequired' required>
+                </div>
+                <div class="formCss2">
+                    <label for="address">Adresse : </label>
+                        <input type="text" name="address" id="address" class='infoRequired' required>
+                </div>
+                <div class="formCss1">
+                    <label for="city">Ville : </label>
+                        <input type="text" name="city" id="city" class='infoRequired' required>
+                </div>
+                <div class="formCss1">
+                    <label for="email">Email : </label>
+                        <input type="email" name="email" id="email" class='infoRequired' required>
+                </div>
+                <div class="formCss">
+                    <input type="button" id='btn-submit' value="Validez votre commande">
+                </div>
+            </form>
+    
+        </div>
+
+
+        <!-----Footer----->
+        <footer id="footer">
+            <div class="footerContent">
+                <ul>
+                    <p>ORINOCO</p>
+                    <li><a href="#">Qui sommes nous ?</a></li>
+                    <li><a href="#">Vendeurs Partenaires</a></li>
+                    <li><a href="#">ORINOCO dans la presse</a></li>
+                </ul>
+                <ul>
+                    <p>SERVICE CLIENTS</p>
+                    <li><a href="#">Aide & contact</a></li>
+                    <li><a href="#">Retour produit</a></li>
+                    <li><a href="#">Livraisons</a></li>
+                </ul>
+                <ul>
+                    <p>A PROPOS</p>
+                    <li><a href="#">CGU / CGV</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">Données Personnelles</a></li>
+                </ul>
+            </div>
+        </footer>
+
         <!--scripts-->
         <script  src="js/panier.js"></script>
+
     </body>
     </html>

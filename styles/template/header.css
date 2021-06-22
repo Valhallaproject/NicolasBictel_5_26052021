@@ -12,7 +12,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: solid 2px #8f5bfe;
+  border-bottom: solid 2px #81759b;
   position: fixed;
 }
 
@@ -26,17 +26,50 @@ header nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 header nav a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-decoration: none;
-  color: black;
+  color: gray;
   margin-right: 20%;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
 }
 
-header nav a:hover {
+header nav a :hover {
+  color: black;
   font-weight: bold;
+}
+
+header nav #nbItems {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header nav #nbItems p {
+  position: absolute;
+  margin-left: 15px;
+  margin-top: -5px;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  font-size: 15px;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  line-height: 20px;
 }
 /*# sourceMappingURL=header.css.map */

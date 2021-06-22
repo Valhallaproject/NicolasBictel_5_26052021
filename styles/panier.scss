@@ -1,4 +1,5 @@
 @import 'template/header.scss';
+@import 'template/footer.scss';
 
 body{
     margin: 0;
@@ -6,23 +7,151 @@ body{
 #main{
     width: 80%;
     padding-top: 150px;
+    padding-bottom: 250px;
     margin: 0 auto;
+    
+    .emptyCart{
+        width: 100%;
+        text-align: center;
+        h1{
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+        .info{
+            width: 70%;
+            margin: 0 auto;
+            margin-bottom: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+        }
+        i{
+            font-size: 100px;
+            color: #81759b;
+        }
+        a{
+            background-color: #f08d0c;
+            text-decoration: none;
+            color: black;
+            padding: 10px;
+        }
+    }
+    .detail{
+        display: flex;
+        flex-wrap: wrap;
+        line-height: 50px;
+        text-align: center;
+        p{
+            width: 18%;
+            height: 50px;
+            padding: 5px;
+            border-bottom: 1px solid black;
+            margin: 0;
+        }
+    }
+    .line{
+        width: 92.5%;
+        height: 40px;
+        background-color: #dddddd;
+    }
     .fullCart{
         display: flex;
         flex-wrap: wrap;
         line-height: 50px;
+        text-align: center;
         p{
-            width: 22%;
+            width: 18%;
             height: 50px;
-            border: 1px solid black;
+            border-bottom: 1px solid black;
             padding: 5px;
             margin: 0;
 
         }
+        button{
+            height: 30px;
+            margin-top: 30px;
+            cursor: pointer;
+        }
         
     }
+    .total{
+        float: right;
+        margin-top: -50px;
+        margin-right: 10%;
+        font-size: 20px;
+        font-weight: bold;
+    }
     #supprCart{
-            margin-top: 15px;
-            height: 35px;
-        }
+        margin-top: 15px;
+        height: 35px;
+        cursor: pointer;
+    }
+    #commande{
+        margin-top: 15px;
+        height: 35px;
+        border: none;
+        background-color: #f08d0c;
+        cursor: pointer;
+    }
 }
+
+/*----------Modal Formuaire----------*/
+#formulaire{
+    border: 8px solid #81759b;
+    border-radius: 50px;
+    height: 400px;
+    width: 50%;
+    left: 25%;
+    display: none;
+    position: fixed;
+    top: 200px;
+    z-index: 1000;
+    background-color: #fff;
+    padding: 25px;
+    .text{
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        button{
+            height: 25px;
+            cursor: pointer
+        }
+    }
+    #form{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    
+        .formCss1{
+            width: 45%;
+            margin-top: 15px;
+            input{
+                width: 100%;
+                height: 20px;
+                border-radius: 5px;
+            }
+        }
+        .formCss2{
+            width: 100%;
+            margin-top: 15px;
+            input{
+                width: 100%;
+                height: 20px;
+                border-radius: 5px;
+            }
+        }
+        .formCss{
+            margin-top: 30px;
+            width: 100%;
+            text-align: center;
+            input{
+                background-color: #f08d0c;
+                height: 35px;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+  }

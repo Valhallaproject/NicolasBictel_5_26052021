@@ -1,0 +1,33 @@
+footer {
+  margin-top: 100px;
+  width: 100%;
+  padding: 50px 0 50px 0;
+  background-color: black;
+}
+
+footer .footerContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+}
+
+footer .footerContent ul {
+  color: white;
+  font-weight: bold;
+}
+
+footer .footerContent ul li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+
+footer .footerContent ul li a {
+  text-decoration: none;
+  color: white;
+}
+/*# sourceMappingURL=footer.css.map */

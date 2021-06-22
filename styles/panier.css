@@ -12,7 +12,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: solid 2px #8f5bfe;
+  border-bottom: solid 2px #81759b;
   position: fixed;
 }
 
@@ -26,18 +26,84 @@ header nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 header nav a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-decoration: none;
-  color: black;
+  color: gray;
   margin-right: 20%;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
 }
 
-header nav a:hover {
+header nav a :hover {
+  color: black;
   font-weight: bold;
+}
+
+header nav #nbItems {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header nav #nbItems p {
+  position: absolute;
+  margin-left: 15px;
+  margin-top: -5px;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  font-size: 15px;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  line-height: 20px;
+}
+
+footer {
+  margin-top: 100px;
+  width: 100%;
+  padding: 50px 0 50px 0;
+  background-color: black;
+}
+
+footer .footerContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+}
+
+footer .footerContent ul {
+  color: white;
+  font-weight: bold;
+}
+
+footer .footerContent ul li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+
+footer .footerContent ul li a {
+  text-decoration: none;
+  color: white;
 }
 
 body {
@@ -47,7 +113,68 @@ body {
 #main {
   width: 80%;
   padding-top: 150px;
+  padding-bottom: 250px;
   margin: 0 auto;
+}
+
+#main .emptyCart {
+  width: 100%;
+  text-align: center;
+}
+
+#main .emptyCart h1 {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+#main .emptyCart .info {
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#main .emptyCart i {
+  font-size: 100px;
+  color: #81759b;
+}
+
+#main .emptyCart a {
+  background-color: #f08d0c;
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+}
+
+#main .detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  line-height: 50px;
+  text-align: center;
+}
+
+#main .detail p {
+  width: 18%;
+  height: 50px;
+  padding: 5px;
+  border-bottom: 1px solid black;
+  margin: 0;
+}
+
+#main .line {
+  width: 92.5%;
+  height: 40px;
+  background-color: #dddddd;
 }
 
 #main .fullCart {
@@ -57,18 +184,118 @@ body {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   line-height: 50px;
+  text-align: center;
 }
 
 #main .fullCart p {
-  width: 22%;
+  width: 18%;
   height: 50px;
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   padding: 5px;
   margin: 0;
+}
+
+#main .fullCart button {
+  height: 30px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+#main .total {
+  float: right;
+  margin-top: -50px;
+  margin-right: 10%;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 #main #supprCart {
   margin-top: 15px;
   height: 35px;
+  cursor: pointer;
+}
+
+#main #commande {
+  margin-top: 15px;
+  height: 35px;
+  border: none;
+  background-color: #f08d0c;
+  cursor: pointer;
+}
+
+/*----------Modal Formuaire----------*/
+#formulaire {
+  border: 8px solid #81759b;
+  border-radius: 50px;
+  height: 400px;
+  width: 50%;
+  left: 25%;
+  display: none;
+  position: fixed;
+  top: 200px;
+  z-index: 1000;
+  background-color: #fff;
+  padding: 25px;
+}
+
+#formulaire .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-weight: bold;
+}
+
+#formulaire .text button {
+  height: 25px;
+  cursor: pointer;
+}
+
+#formulaire #form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#formulaire #form .formCss1 {
+  width: 45%;
+  margin-top: 15px;
+}
+
+#formulaire #form .formCss1 input {
+  width: 100%;
+  height: 20px;
+  border-radius: 5px;
+}
+
+#formulaire #form .formCss2 {
+  width: 100%;
+  margin-top: 15px;
+}
+
+#formulaire #form .formCss2 input {
+  width: 100%;
+  height: 20px;
+  border-radius: 5px;
+}
+
+#formulaire #form .formCss {
+  margin-top: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+#formulaire #form .formCss input {
+  background-color: #f08d0c;
+  height: 35px;
+  border: none;
+  cursor: pointer;
 }
 /*# sourceMappingURL=panier.css.map */
