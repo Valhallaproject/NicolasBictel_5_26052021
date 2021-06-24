@@ -72,4 +72,26 @@ header nav #nbItems p {
   text-align: center;
   line-height: 20px;
 }
+
+/*-----MediaQueries-----*/
+@media (min-width: 2560px) {
+  header {
+    height: 200px;
+  }
+  header .logo {
+    height: 200px;
+  }
+  header nav a {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 425px) {
+  header .logo {
+    height: 50px;
+  }
+  header nav {
+    margin-right: 10%;
+  }
+}
 /*# sourceMappingURL=header.css.map */

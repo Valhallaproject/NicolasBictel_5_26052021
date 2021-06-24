@@ -2,7 +2,6 @@
 fetch("http://localhost:3000/api/cameras")
     .then((reponse) => reponse.json())
     .then((reponse) =>{
-      console.log(reponse);
          //Variable to add my elements
          let html = "";
          // Loop to retrieve all camera variables

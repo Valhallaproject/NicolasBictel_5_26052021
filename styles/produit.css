@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Secular+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Secular+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Secular+One&display=swap");
 header {
   width: 100%;
   height: 100px;
@@ -71,6 +73,36 @@ header nav #nbItems p {
   color: white;
   text-align: center;
   line-height: 20px;
+}
+
+/*-----MediaQueries-----*/
+@media (min-width: 2560px) {
+  header {
+    height: 200px;
+  }
+  header .logo {
+    height: 200px;
+  }
+  header nav a {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 425px) {
+  header .logo {
+    height: 50px;
+  }
+  header nav {
+    margin-right: 10%;
+  }
+}
+
+h1,
+h2,
+h3,
+p,
+a {
+  font-family: 'Roboto', sans-serif;
 }
 
 #content {
@@ -161,6 +193,80 @@ header nav #nbItems p {
   margin-right: 15px;
 }
 
+/*-----MediaQueries-----*/
+@media (min-width: 2560px) {
+  #content {
+    padding-top: 450px;
+  }
+  #content .card {
+    width: 80%;
+  }
+  #content .card img {
+    width: 80%;
+  }
+  #content .cameraDescription {
+    padding-left: 0;
+  }
+  #content .cameraDescription h2 {
+    font-size: 3em;
+  }
+  #content .cameraDescription .text, #content .cameraDescription .price {
+    font-size: 2em;
+  }
+  #content .cameraDescription .select {
+    font-size: 2em;
+  }
+  #content .cameraDescription .select select {
+    font-size: 0.75em;
+  }
+  #content .cameraDescription .quantity input {
+    font-size: 0.75em;
+  }
+  #content .cameraDescription .add button {
+    font-size: 2em;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 2559px) {
+  #content {
+    padding-top: 200px;
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  #content {
+    padding-top: 150px;
+    padding-bottom: 0;
+  }
+  #content .cameraDescription h2,
+  #content .cameraDescription .text,
+  #content .cameraDescription .price {
+    margin: 0;
+  }
+  #content .select,
+  #content .add {
+    margin: 0;
+  }
+}
+
+@media (max-width: 425px) {
+  #produit {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #produit .cameraDescription {
+    width: 100%;
+  }
+}
+
+a,
+p {
+  font-family: 'Roboto', sans-serif;
+}
+
 footer {
   margin-top: 100px;
   width: 100%;
@@ -192,6 +298,30 @@ footer .footerContent ul li {
 footer .footerContent ul li a {
   text-decoration: none;
   color: white;
+}
+
+/*-----MediaQueries-----*/
+@media (min-width: 2560px) {
+  footer .footerContent {
+    font-size: 25px;
+    width: 60%;
+  }
+  footer .footerContent ul li a {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 425px) {
+  footer .footerContent {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+  }
+  footer .footerContent ul {
+    padding: 0;
+  }
 }
 
 body {

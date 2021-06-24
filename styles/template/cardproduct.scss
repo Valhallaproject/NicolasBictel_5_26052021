@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Secular+One&display=swap');
+
+h1,
+h2,
+h3,
+p,
+a{
+    font-family: 'Roboto', sans-serif;
+}
 #content{
     width: 100%;
     padding-top: 250px;
@@ -6,7 +15,6 @@
         width: 80%;
         margin: 0 auto;
         display: flex;
-       
     }
     .cameraDescription{
         width: 45%;
@@ -23,8 +31,6 @@
             width: 100%;
 
         }
-        
-        
     }
     .select{
         display: flex;
@@ -60,4 +66,72 @@
         }
     }
 }
-
+/*-----MediaQueries-----*/
+@media (min-width: 2560px){
+    #content{
+        padding-top: 450px;
+        .card{
+            width: 80%;
+            img{
+                width: 80%;
+            }
+        }
+        .cameraDescription{
+            padding-left: 0;
+            h2{
+                font-size: 3em;
+            }
+            .text, .price{
+                font-size: 2em;
+            }
+            .select{
+                font-size: 2em;
+                select{
+                    font-size: 0.75em;
+                }
+            }
+            .quantity{
+                input{
+                    font-size: 0.75em;
+                }
+            }
+            .add{
+                button{
+                    font-size: 2em;
+                }
+            }
+        }
+    }
+}
+@media (min-width: 1024px) and (max-width: 2559px){
+    #content{
+        padding-top: 200px;
+        padding-bottom: 0;
+    }
+}
+@media (max-width: 768px){
+    #content{
+        padding-top: 150px;
+        padding-bottom: 0;
+        .cameraDescription{
+            h2,
+            .text,
+            .price{
+                margin: 0;
+            }
+        }
+        .select,
+        .add{
+            margin: 0;
+        }
+    }
+}
+@media (max-width: 425px){
+    #produit{
+        flex-direction: column;
+        .cameraDescription{
+            width: 100%;
+        }
+    }
+    
+}

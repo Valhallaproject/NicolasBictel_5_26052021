@@ -50,5 +50,29 @@ header{
         
     }
 }
-
+/*-----MediaQueries-----*/
+@media (min-width: 2560px){
+    header{
+        height: 200px;
+        .logo{
+            height: 200px;
+        }
+        nav{
+           a{
+            font-size: 30px;
+            }
+        } 
+    }
+        
+}
+@media (max-width: 425px){
+    header{
+        .logo{
+            height: 50px;
+        }
+        nav{
+            margin-right: 10%;
+        }
+    }
+}
 

@@ -1,5 +1,14 @@
 @import 'template/header.scss';
 @import 'template/footer.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Secular+One&display=swap');
+
+h1,
+h2,
+h3,
+p,
+a{
+    font-family: 'Roboto', sans-serif;
+}
 
 body{
     margin: 0;
@@ -155,3 +164,137 @@ body{
         }
     }
   }
+  /*-----MediaQueries-----*/
+@media (min-width: 2560px){
+    #main{
+        padding-top: 350px;
+        padding-bottom: 550px;
+        font-size: 2em;
+        .action{
+            #commande,
+            #supprCart{
+                height: 55px;
+                font-size: 1em;
+            }
+        }
+        .total{
+            font-size: 1em;
+        }
+    }
+}
+@media (max-width: 1024px){
+    #main{
+        padding-bottom: 0;
+    }
+}
+@media (min-width: 768px){
+    #main{
+        .detail{
+            p{
+                width: 15%;
+            }
+        }
+        .fullCart{
+            p{
+                width: 15%;
+            }
+        }
+    }
+}
+@media (max-width: 425px){
+    #main{
+        .detail{
+            p{
+                height: 30px;
+                font-size: 12px;
+                width: 15%;
+            }
+        }
+        .fullCart{
+            p{
+                height: 31px;
+                font-size: 9px;
+                font-weight: bold ;
+                width: 15%;
+            }
+            button{
+                height: 20px;
+                margin-top: 10px;
+            }
+        }
+        .total{
+            margin-top: 0;
+        }
+    }
+}
+@media (min-width: 320px) and (max-width: 424px){
+    #main{
+        .detail{
+            p{
+                height: 30px;
+                font-size: 8px;
+                width: 13%;
+            }
+        }
+        .fullCart{
+            p{
+                height: 30px;
+                font-size: 8px;
+                font-weight: bold;
+                width: 13%;
+            }
+            button{
+                height: 20px;
+                margin-top: 10px;
+            }
+        }
+    }
+}
+/*----------Modal Formuaire----------*/
+@media (min-width: 2560px){
+    #formulaire{
+        height: 600px;
+        p{
+            font-size: 2em;
+        }
+        #form{
+            .formCss1,
+            .formCss2{
+                font-size: 2em;
+                input{
+                    height: 35px;
+                }
+            }
+            .formCss{
+                input{
+                    height: 50px;
+                    font-size: 2em;
+                    margin-top: 50px;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 1024px){
+    #formulaire{
+        top: 100px;
+        left: 20%;
+    }
+}
+@media (max-width: 425px){
+    #formulaire{
+        width: 80%;
+        left: 2%;
+    }
+}
+@media (max-width: 375px){
+    #formulaire{
+        left: 1%;
+    }
+}
+@media (max-width: 320px){
+    #formulaire{
+        width: 75%;
+        left: 2%;
+    }
+}

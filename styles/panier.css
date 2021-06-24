@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Secular+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Secular+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Secular+One&display=swap");
 header {
   width: 100%;
   height: 100px;
@@ -73,6 +75,33 @@ header nav #nbItems p {
   line-height: 20px;
 }
 
+/*-----MediaQueries-----*/
+@media (min-width: 2560px) {
+  header {
+    height: 200px;
+  }
+  header .logo {
+    height: 200px;
+  }
+  header nav a {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 425px) {
+  header .logo {
+    height: 50px;
+  }
+  header nav {
+    margin-right: 10%;
+  }
+}
+
+a,
+p {
+  font-family: 'Roboto', sans-serif;
+}
+
 footer {
   margin-top: 100px;
   width: 100%;
@@ -104,6 +133,38 @@ footer .footerContent ul li {
 footer .footerContent ul li a {
   text-decoration: none;
   color: white;
+}
+
+/*-----MediaQueries-----*/
+@media (min-width: 2560px) {
+  footer .footerContent {
+    font-size: 25px;
+    width: 60%;
+  }
+  footer .footerContent ul li a {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 425px) {
+  footer .footerContent {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+  }
+  footer .footerContent ul {
+    padding: 0;
+  }
+}
+
+h1,
+h2,
+h3,
+p,
+a {
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -297,5 +358,126 @@ body {
   height: 35px;
   border: none;
   cursor: pointer;
+}
+
+/*-----MediaQueries-----*/
+@media (min-width: 2560px) {
+  #main {
+    padding-top: 350px;
+    padding-bottom: 550px;
+    font-size: 2em;
+  }
+  #main .action #commande,
+  #main .action #supprCart {
+    height: 55px;
+    font-size: 1em;
+  }
+  #main .total {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 1024px) {
+  #main {
+    padding-bottom: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  #main .detail p {
+    width: 15%;
+  }
+  #main .fullCart p {
+    width: 15%;
+  }
+}
+
+@media (max-width: 425px) {
+  #main .detail p {
+    height: 30px;
+    font-size: 12px;
+    width: 15%;
+  }
+  #main .fullCart p {
+    height: 31px;
+    font-size: 9px;
+    font-weight: bold;
+    width: 15%;
+  }
+  #main .fullCart button {
+    height: 20px;
+    margin-top: 10px;
+  }
+  #main .total {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 424px) {
+  #main .detail p {
+    height: 30px;
+    font-size: 8px;
+    width: 13%;
+  }
+  #main .fullCart p {
+    height: 30px;
+    font-size: 8px;
+    font-weight: bold;
+    width: 13%;
+  }
+  #main .fullCart button {
+    height: 20px;
+    margin-top: 10px;
+  }
+}
+
+/*----------Modal Formuaire----------*/
+@media (min-width: 2560px) {
+  #formulaire {
+    height: 600px;
+  }
+  #formulaire p {
+    font-size: 2em;
+  }
+  #formulaire #form .formCss1,
+  #formulaire #form .formCss2 {
+    font-size: 2em;
+  }
+  #formulaire #form .formCss1 input,
+  #formulaire #form .formCss2 input {
+    height: 35px;
+  }
+  #formulaire #form .formCss input {
+    height: 50px;
+    font-size: 2em;
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 1024px) {
+  #formulaire {
+    top: 100px;
+    left: 20%;
+  }
+}
+
+@media (max-width: 425px) {
+  #formulaire {
+    width: 80%;
+    left: 2%;
+  }
+}
+
+@media (max-width: 375px) {
+  #formulaire {
+    left: 1%;
+  }
+}
+
+@media (max-width: 320px) {
+  #formulaire {
+    width: 75%;
+    left: 2%;
+  }
 }
 /*# sourceMappingURL=panier.css.map */

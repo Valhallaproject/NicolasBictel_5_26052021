@@ -1,8 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Secular+One&display=swap');
+
+h1,
+h2,
+h3,
+p,
+a{
+    font-family: 'Roboto', sans-serif;
+}
 #content{
     width: 100%;
     padding-top: 150px;
     .title{
         text-align: center;
+        font-family: 'Roboto', sans-serif;
     }
     .line{
         width: 30%;
@@ -45,6 +55,48 @@
             text-decoration: none;
             :hover{
                 font-weight: bold;
+            }
+        }
+    }
+}
+/*-----MediaQueries-----*/
+@media (min-width: 2560px){
+    #content{
+        padding-top: 250px;
+        h1{
+            font-size: 2.5em;
+        }
+        h2{
+            font-size: 2em;
+        }
+        .produit{
+            h3{
+                font-size: 1.5em;
+            }
+        }
+        #cameras{
+            .item{
+                .row{
+                    font-size: 1.5em;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 768px){
+    #content{
+        #cameras{
+            .item{
+                width: 46%;
+            }
+        }
+    }
+}
+@media (max-width: 425px){
+    #content{
+        #cameras{
+            .item{
+                width: 100%;
             }
         }
     }

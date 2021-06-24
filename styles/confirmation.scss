@@ -1,0 +1,43 @@
+@import 'template/header.scss';
+@import 'template/footer.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+body{
+    margin: 0;
+}
+h1,
+h2,
+h3,
+p,
+a{
+    font-family: 'Roboto', sans-serif;
+}
+#content{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 200px;
+    padding-bottom: 85px;
+    text-align: center;
+    h1{
+        font-size: 30px;
+    }
+    h3{
+        margin-top: 75px;
+    }
+    #info{
+        font-size: 20px;
+        span{
+            font-weight: bold;
+        }
+    }
+    #recap{
+        .recapProduits{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around; 
+            margin: 0 auto;
+            width: 65%;
+            border-bottom: 1px solid black;
+        }
+        
+    }
+}

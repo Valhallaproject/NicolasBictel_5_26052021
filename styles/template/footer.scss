@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Secular+One&display=swap');
+
+a,
+p{
+    font-family: 'Roboto', sans-serif;
+}
 footer{
     margin-top: 100px;
     width: 100%;
@@ -21,4 +27,28 @@ footer{
             }
         }
     }
+}
+/*-----MediaQueries-----*/
+@media (min-width: 2560px){
+    footer{
+        .footerContent{
+            font-size: 25px;
+            width: 60%;
+            ul li a {
+                font-size: 25px;
+            }
+        }
+    }
+}
+@media (max-width: 425px){
+    footer{
+        .footerContent{
+            flex-direction: column;
+            text-align: center;
+            ul{
+                padding: 0;
+            }
+        }
+    }
+    
 }
