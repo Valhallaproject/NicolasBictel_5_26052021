@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Secular+One&display=swap');
+
+a,
+p{
+    font-family: 'Roboto', sans-serif;
+}
+footer{
+    margin-top: 100px;
+    width: 100%;
+    padding: 50px 0 50px 0;
+    background-color: black;
+    .footerContent{
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin: 0 auto;
+        p{
+            color: white;
+        }
+        ul{
+            color: white;
+            font-weight: bold;
+            padding: 0;
+            li{
+                list-style: none;
+                margin-bottom: 5px;
+                a{
+                    text-decoration: none;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+/*-----MediaQueries-----*/
+@media (min-width: 2560px){
+    footer{
+        .footerContent{
+            font-size: 25px;
+            width: 60%;
+            ul li a {
+                font-size: 25px;
+            }
+        }
+    }
+}
+@media (max-width: 425px){
+    footer{
+        .footerContent{
+            flex-direction: column;
+            text-align: center;
+            ul{
+                padding: 0;
+            }
+        }
+    }
+    
+}
