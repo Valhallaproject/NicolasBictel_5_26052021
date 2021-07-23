@@ -1,7 +1,10 @@
-//Declaration of the localstorage variable
+
+   
+ //Declaration of the localstorage variable
 let cartStorage = JSON.parse(localStorage.getItem("produit"));
-//Shopping cart display
-const cartPage = document.querySelector("#main");
+let cart = JSON.parse(localStorage.getItem("info"));
+ //Shopping cart display
+const cartPage = document.querySelector("#main");    
 //Variable for empty cart display
 let emptyCart = `
         <div class="emptyCart">
@@ -31,67 +34,89 @@ let topCart = `
 let supValid = `
     <div class="action">
         <button id="commande">Passer la commande</button>
-        <button id="supprCart"onclick="supCart();">Vider le panier</button>
+        <button id="supprCart" onclick="supCart();">Vider le panier</button>
     </div>`;
+
+
 //Variable to display the total price of the cart
 let cartPrice = [];
+
  //If the cart is empty
 if(cartStorage === null){
     //display "le panier est vide"
     cartPage.innerHTML = emptyCart;
 //If there are products in the cart
 }else if(cartStorage){     
-    let fullCart = [];
+    
     //loop to retrieve all the products in the basket
     for(i = 0; i < cartStorage.length; i++){
-        fullCart += `
-        <div class="fullCart">
-            <p>${cartStorage[i].name}</p>
-            <p>${cartStorage[i].option}</p>
-            <p>${(cartStorage[i].price).toFixed(2)} €</p>
-            <p>${cartStorage[i].quantity}</p>
-            <p class="price">${(cartStorage[i].totalPrice).toFixed(2)} €</p>
-            <button class="supProduct" onclick="history.go(0)"><i class="far fa-trash-alt"></i></button>
-        </div>`;
-    }
+        
+        let idCamera = cartStorage[i]._id;
+        fetch("http://localhost:3000/api/cameras")
+        .then((response) => response.json())
+        .then((response) =>{
+              let cart = []
+              cart.push(response)
+              localStorage.setItem("info", JSON.stringify(cart)) 
+              console.log(cart);  
+              for (let i = 0; i < cart[0].length; i++) {
+                console.log(cart[0][i]._id);
+              }
+           let fullCart = [];
+            for(i = 0; i < cartStorage.length; i++){
+                    
+                let totalPrice =  (cart[0][i].price/100).toFixed(2) * cartStorage[i].quantity;    
+                
+                fullCart += `
+                <div class="fullCart">
+                    <p>${cart[0][i].name}</p>
+                    <p>${cartStorage[i].option}</p>
+                    <p>${(cart[0][i].price/100).toFixed(2)} €</p>
+                    <p>${cartStorage[i].quantity}</p>
+                    <p>${(totalPrice).toFixed(2)} €</p>
+                    <button class="supProduct" onclick="history.go(0)"><i class="far fa-trash-alt"></i></button>
+                </div>`;
+                
+           }    
+         
+        
+    
+       
     //display products
     if(i ==  cartStorage.length){
         cartPage.innerHTML = topCart + fullCart + supValid;
-    }
-}
+ 
+
 //Loop to get the prices in the basket
-for (let j = 0; j < cartStorage.length; j++) {
+for (let j = 0; j < cart[0].length; j++) {
     //Sends prices in the cartPrice variable
-    cartPrice.push(cartStorage[j].totalPrice);    
+    cartPrice.push(cart[0].price);    
 }
+
 //Addition of cart prices (Reduce method)
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 const totalCartPrice = cartPrice.reduce(reducer, 0);
 let total = `
-    <div class="total">
-        <p> Prix total du panier : ${(totalCartPrice).toFixed(2)} €</p>
-    </div>`;
+<div class="total">
+    <p> Prix total du panier : ${(totalCartPrice).toFixed(2)} €</p>
+</div>`;
 //HTML display
 cartPage.insertAdjacentHTML("beforeEnd", total);
-//****************Cart deletion****************/
-function supCart() {
-    localStorage.clear();
-    cartPage.innerHTML = emptyCart;
-}
 //****************Deletion of a product in the cart****************/
 const supItem = document.querySelectorAll(".supProduct");
 for(let i =0; i < supItem.length; i ++){  //I create a loop to identify all the buttons
     supItem[i].addEventListener('click', event => {
         cartStorage = cartStorage.filter(item => item !== cartStorage[i])     //On click, I compare the elements of the localstorage with the filter method to remove it
         localStorage.setItem("produit", JSON.stringify(cartStorage))     //I update the Localstorage
-        //cartPage.innerHTML = fullCart + supValid;     //I display my new array
         //If I delete the last product
         if(cartStorage.length === 0){
             localStorage.removeItem("produit") //I delete the array from localstorage
             cartPage.innerHTML = emptyCart;
         }
     })
+
 }
+
 //****************Formulaire****************/
 //Variables pour styliser à l'ouverture de la modale
 let form = document.getElementById("formulaire");
@@ -115,11 +140,31 @@ close.addEventListener("click", event =>{
         header.style.filter = "none";
         footer.style.filter = "none";
 })
+
 //Form management
 function sendOrder() {
+    //Variables to retrieve formulaire values
+    let firstName = document.getElementById("firstName").value;
+    let lastName = document.getElementById("lastName").value;
+    let address = document.getElementById("address").value;
+    let city = document.getElementById("city").value;
+    let email = document.getElementById("email").value;
+    //Variables to create Regex
+    let firstNameRegex = /^[A-Za-zÀ-ÿ\ -]+$/;
+    let lastnameRegex = /^[A-Za-zÀ-ÿ\ -]+$/;
+    let addressRegex = /^[0-9]{1,4}[ ,-][ A-Za-zÀ-ÿ0-9\-]+$/;
+    let cityRegex = /^[a-zA-Z\- ]+$/;
+    let emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    //Variables to compare values and regex
+    let firstNameResult = firstNameRegex.test(firstName);
+    let lastNameResult = lastnameRegex.test(lastName);
+    let addressResult = addressRegex.test(address);
+    let cityResult = cityRegex.test(city);
+    let emailResult = emailRegex.test(email);
+
     let form = document.getElementById("form");
     //If the form fields are filled in correctly
-    if (form.reportValidity() == true) {
+    if (firstNameResult & lastNameResult & addressResult & cityResult & emailResult == true) {
         //Creation of the contact variable
         let contact = {
             firstName : document.getElementById("firstName").value,
@@ -168,5 +213,10 @@ let envoiFormulaire = document.getElementById("btn-submit");
 envoiFormulaire.addEventListener('click', event => {
     event.preventDefault();
     sendOrder();
-});
-  
+});} })} } 
+//****************Cart deletion****************/
+function supCart() {
+    localStorage.removeItem("produit");
+    cartPage.innerHTML = emptyCart;     
+} 
+
