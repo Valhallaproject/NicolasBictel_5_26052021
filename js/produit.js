@@ -57,11 +57,11 @@ fetch("http://localhost:3000/api/cameras/"+idProduct)
         //Variable in json format for localstorage
         let cart = {
             _id: reponse._id,
-            //name: reponse.name,
-            //imageUrl:reponse.imageUrl,
-            //description: reponse.description,
-            //price: (reponse.price/100),
-            //totalPrice: (reponse.price/100)*myNumber,
+            name: reponse.name,
+            imageUrl:reponse.imageUrl,
+            description: reponse.description,
+            price: (reponse.price/100),
+            totalPrice: (reponse.price/100)*myNumber,
             quantity: myNumber,
             option: oSelect.value,
         }
@@ -85,7 +85,7 @@ fetch("http://localhost:3000/api/cameras/"+idProduct)
                 if (cart._id === cartStorage[i]._id & cart.option === cartStorage[i].option){ 
                     //I modify the quantity of the product object which is in the cart
                     cartStorage[i].quantity = myNumber +  cartStorage[i].quantity;
-                    //cartStorage[i].totalPrice = cartStorage[i].quantity * cartStorage[i].price;
+                    cartStorage[i].totalPrice = cartStorage[i].quantity * cartStorage[i].price;
                     localStorage.setItem("produit", JSON.stringify(cartStorage));
                     //I stop the loop
                     break;
