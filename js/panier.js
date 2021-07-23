@@ -40,7 +40,6 @@ let supValid = `
 
 //Variable to display the total price of the cart
 let cartPrice = [];
-
  //If the cart is empty
 if(cartStorage === null){
     //display "le panier est vide"
@@ -50,49 +49,32 @@ if(cartStorage === null){
     
     //loop to retrieve all the products in the basket
     for(i = 0; i < cartStorage.length; i++){
-        
-        let idCamera = cartStorage[i]._id;
-        fetch("http://localhost:3000/api/cameras")
+        console.log(cartStorage[i]._id);
+        fetch("http://localhost:3000/api/cameras/"+cartStorage[i]._id)
         .then((response) => response.json())
         .then((response) =>{
-              let cart = []
+              let cart = [];
               cart.push(response)
-              localStorage.setItem("info", JSON.stringify(cart)) 
-              console.log(cart);  
-              for (let i = 0; i < cart[0].length; i++) {
-                console.log(cart[0][i]._id);
-              }
-           let fullCart = [];
-            for(i = 0; i < cartStorage.length; i++){
-                    
-                let totalPrice =  (cart[0][i].price/100).toFixed(2) * cartStorage[i].quantity;    
-                
+              let fullCart = [];
+              for(i = 0; i < cart.length; i++) {       
+                let totalPrice =  (cart[i].price/100).toFixed(2) * cartStorage[i].quantity;
                 fullCart += `
                 <div class="fullCart">
-                    <p>${cart[0][i].name}</p>
+                    <p>${response.name}</p>
                     <p>${cartStorage[i].option}</p>
-                    <p>${(cart[0][i].price/100).toFixed(2)} €</p>
+                    <p>${(response.price/100).toFixed(2)} €</p>
                     <p>${cartStorage[i].quantity}</p>
                     <p>${(totalPrice).toFixed(2)} €</p>
                     <button class="supProduct" onclick="history.go(0)"><i class="far fa-trash-alt"></i></button>
                 </div>`;
-                
-           }    
-         
-        
-    
-       
-    //display products
-    if(i ==  cartStorage.length){
-        cartPage.innerHTML = topCart + fullCart + supValid;
- 
-
-//Loop to get the prices in the basket
-for (let j = 0; j < cart[0].length; j++) {
-    //Sends prices in the cartPrice variable
-    cartPrice.push(cart[0].price);    
-}
-
+                }
+   
+//display products
+if(  i == cart.length){
+cartPage.innerHTML = topCart + fullCart + supValid;
+for (let i = 0; i < cartStorage.length; i++) {
+    cartPrice.push(response.price/100).toFixed(2) * cartStorage[i].quantity;
+}  
 //Addition of cart prices (Reduce method)
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 const totalCartPrice = cartPrice.reduce(reducer, 0);
@@ -101,7 +83,12 @@ let total = `
     <p> Prix total du panier : ${(totalCartPrice).toFixed(2)} €</p>
 </div>`;
 //HTML display
-cartPage.insertAdjacentHTML("beforeEnd", total);
+cartPage.insertAdjacentHTML("beforeEnd", total); 
+                    
+
+
+
+
 //****************Deletion of a product in the cart****************/
 const supItem = document.querySelectorAll(".supProduct");
 for(let i =0; i < supItem.length; i ++){  //I create a loop to identify all the buttons
@@ -213,7 +200,7 @@ let envoiFormulaire = document.getElementById("btn-submit");
 envoiFormulaire.addEventListener('click', event => {
     event.preventDefault();
     sendOrder();
-});} })} } 
+}); }})} }
 //****************Cart deletion****************/
 function supCart() {
     localStorage.removeItem("produit");
